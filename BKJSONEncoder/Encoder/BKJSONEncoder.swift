@@ -8,6 +8,13 @@
 
 import Foundation
 
+public var defaultBKEncoder: JSONEncoder {
+    let encoder = JSONEncoder()
+    encoder.keyEncodingStrategy = .convertToSnakeCase
+    encoder.outputFormatting = .prettyPrinted
+    return encoder
+}
+
 public final class BKJSONEncoder {
     
     private let deserializer: BKJSONDataDeserializable
@@ -17,12 +24,11 @@ public final class BKJSONEncoder {
     public init(
         deserializer: BKJSONDataDeserializable = BKJSONDataDeserializer(),
         parser: BKJSONParsable = BKJSONParser(),
-        toStrategy strategy: JSONEncoder.KeyEncodingStrategy = .convertToSnakeCase
+        encoder: JSONEncoder = defaultBKEncoder
     ) {
         self.deserializer = deserializer
         self.parser = parser
-        encoder = JSONEncoder()
-        encoder.keyEncodingStrategy = strategy
+        self.encoder = encoder
     }
     
     public func encode<T>(_ value: T) throws -> JSON where T: Encodable {
