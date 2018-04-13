@@ -37,3 +37,20 @@ var expectedPersonJSON: JSON {
         "favorite_color": "red"
     ]
 }
+
+extension BKJSONEncodableError: Equatable {
+    public static func == (lhs: BKJSONEncodableError, rhs: BKJSONEncodableError) -> Bool {
+        switch (lhs, rhs) {
+        case (.encoding, .encoding):
+            return true
+        case (.deserializing, .deserializing):
+            return true
+        case (.invalidJSON, .invalidJSON):
+            return true
+        case (.other, .other):
+            return true
+        default:
+            return false
+        }
+    }
+}
