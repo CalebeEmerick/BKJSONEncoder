@@ -11,6 +11,10 @@
 		336CD9CF20800181003218AD /* BKJSONDataDeserializerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336CD9CE20800181003218AD /* BKJSONDataDeserializerMock.swift */; };
 		336CD9D1208008C7003218AD /* BKJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336CD9D0208008C7003218AD /* BKJSONParser.swift */; };
 		336CD9D3208009BC003218AD /* BKJSONParserMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336CD9D2208009BC003218AD /* BKJSONParserMock.swift */; };
+		336CD9D52080EE5F003218AD /* BKJSONDataDeserializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336CD9D42080EE5F003218AD /* BKJSONDataDeserializerTests.swift */; };
+		336CD9D72080EF88003218AD /* SharedItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336CD9D62080EF88003218AD /* SharedItems.swift */; };
+		336CD9D92080F14B003218AD /* BKJSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336CD9D82080F14B003218AD /* BKJSONParserTests.swift */; };
+		336CD9DB2080F3E8003218AD /* BKJSONEncodableErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336CD9DA2080F3E8003218AD /* BKJSONEncodableErrorTests.swift */; };
 		33BC9462207FA85E00489725 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC9461207FA85E00489725 /* AppDelegate.swift */; };
 		33BC9464207FA85E00489725 /* ExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BC9463207FA85E00489725 /* ExampleController.swift */; };
 		33BC9467207FA85E00489725 /* Example.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33BC9465207FA85E00489725 /* Example.storyboard */; };
@@ -37,6 +41,10 @@
 		336CD9CE20800181003218AD /* BKJSONDataDeserializerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKJSONDataDeserializerMock.swift; sourceTree = "<group>"; };
 		336CD9D0208008C7003218AD /* BKJSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKJSONParser.swift; sourceTree = "<group>"; };
 		336CD9D2208009BC003218AD /* BKJSONParserMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKJSONParserMock.swift; sourceTree = "<group>"; };
+		336CD9D42080EE5F003218AD /* BKJSONDataDeserializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKJSONDataDeserializerTests.swift; sourceTree = "<group>"; };
+		336CD9D62080EF88003218AD /* SharedItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedItems.swift; sourceTree = "<group>"; };
+		336CD9D82080F14B003218AD /* BKJSONParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKJSONParserTests.swift; sourceTree = "<group>"; };
+		336CD9DA2080F3E8003218AD /* BKJSONEncodableErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKJSONEncodableErrorTests.swift; sourceTree = "<group>"; };
 		33BC945E207FA85E00489725 /* BKJSONEncoder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BKJSONEncoder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33BC9461207FA85E00489725 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33BC9463207FA85E00489725 /* ExampleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleController.swift; sourceTree = "<group>"; };
@@ -101,8 +109,12 @@
 		33BC9475207FA86000489725 /* BKJSONEncoderTests */ = {
 			isa = PBXGroup;
 			children = (
+				336CD9D62080EF88003218AD /* SharedItems.swift */,
 				336CD9CE20800181003218AD /* BKJSONDataDeserializerMock.swift */,
 				336CD9D2208009BC003218AD /* BKJSONParserMock.swift */,
+				336CD9DA2080F3E8003218AD /* BKJSONEncodableErrorTests.swift */,
+				336CD9D42080EE5F003218AD /* BKJSONDataDeserializerTests.swift */,
+				336CD9D82080F14B003218AD /* BKJSONParserTests.swift */,
 				33BC9476207FA86000489725 /* BKJSONEncoderTests.swift */,
 				33BC9478207FA86000489725 /* Info.plist */,
 			);
@@ -257,8 +269,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				336CD9CF20800181003218AD /* BKJSONDataDeserializerMock.swift in Sources */,
+				336CD9D72080EF88003218AD /* SharedItems.swift in Sources */,
+				336CD9D52080EE5F003218AD /* BKJSONDataDeserializerTests.swift in Sources */,
+				336CD9DB2080F3E8003218AD /* BKJSONEncodableErrorTests.swift in Sources */,
 				336CD9D3208009BC003218AD /* BKJSONParserMock.swift in Sources */,
 				33BC9477207FA86000489725 /* BKJSONEncoderTests.swift in Sources */,
+				336CD9D92080F14B003218AD /* BKJSONParserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,10 +8,4 @@
 
 import UIKit
 
-final class ExampleController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-}
+final class ExampleController: UIViewController {}

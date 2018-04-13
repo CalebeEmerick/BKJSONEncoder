@@ -9,9 +9,10 @@
 import Foundation
 
 public enum BKJSONEncodableError: Error {
-    case encoding(EncodingError)
+    case encoding(Error)
     case deserializing(Error)
     case invalidJSON
+    case other(Error)
 }
 
 extension BKJSONEncodableError: Equatable {
@@ -22,6 +23,8 @@ extension BKJSONEncodableError: Equatable {
         case (.deserializing, .deserializing):
             return true
         case (.invalidJSON, .invalidJSON):
+            return true
+        case (.other, .other):
             return true
         default:
             return false

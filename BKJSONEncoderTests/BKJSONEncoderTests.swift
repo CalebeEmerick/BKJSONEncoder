@@ -15,28 +15,13 @@ final class BKJSONEncoderTests: XCTestCase {
     private var parser: BKJSONParserMock!
     private var encoder: BKJSONEncoder!
     
-    private let person = Person(name: "LeBron James", age: 33, favoriteColor: "red")
-    
-    private let failablePerson = PersonFailable(name: "Kevin Durant", age: 28, someValue: Double.infinity)
-    
-    private struct Person: Codable {
-        let name: String
-        let age: Int
-        let favoriteColor: String
-    }
-    
-    private struct PersonFailable: Codable {
-        let name: String
-        let age: Int
-        let someValue: Double
-    }
-    
-    private var expectedPersonJSON: JSON {
-        return [
-            "name": "LeBron James",
-            "age": 33,
-            "favorite_color": "red"
-        ]
+    private func shouldThrowErrorFor<T>(_ encodedValue: T, andExpectError type: BKJSONEncodableError) where T: Encodable {
+        XCTAssertThrowsError(try encoder.encode(encodedValue)) { error in
+            guard let error = error as? BKJSONEncodableError else {
+                return XCTFail("The error type should be JSONEncodableError")
+            }
+            XCTAssertEqual(error, type)
+        }
     }
     
     override func setUp() {
@@ -65,31 +50,16 @@ final class BKJSONEncoderTests: XCTestCase {
     }
     
     func test_shouldThrow_encodeError() {
-        XCTAssertThrowsError(try encoder.encode(failablePerson), "Should throw an encode error") { error in
-            guard let error = error as? BKJSONEncodableError,
-                case .encoding = error else {
-                    fatalError("The error type should be JSONEncodableError")
-            }
-        }
+        shouldThrowErrorFor(failablePerson, andExpectError: .encoding(genericError))
     }
     
     func test_shouldThrow_deserializationError() {
         deserializer.shouldThrowError = true
-        XCTAssertThrowsError(try encoder.encode(person), "Should throw an encode error") { error in
-            guard let error = error as? BKJSONEncodableError,
-                case .deserializing = error else {
-                    fatalError("The error type should be JSONEncodableError")
-            }
-        }
+        shouldThrowErrorFor(person, andExpectError: .deserializing(genericError))
     }
     
     func test_shouldThrow_invalidJSONError() {
         parser.shouldThrowError = true
-        XCTAssertThrowsError(try encoder.encode(person), "Should throw an encode error") { error in
-            guard let error = error as? BKJSONEncodableError,
-                case .invalidJSON = error else {
-                fatalError("The error type should be JSONEncodableError")
-            }
-        }
+        shouldThrowErrorFor(person, andExpectError: .invalidJSON)
     }
 }

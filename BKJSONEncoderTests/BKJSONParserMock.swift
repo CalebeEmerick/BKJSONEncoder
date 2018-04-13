@@ -17,10 +17,6 @@ final class BKJSONParserMock: BKJSONParsable {
         if shouldThrowError {
             throw BKJSONEncodableError.invalidJSON
         }
-        return [
-            "name": "LeBron James",
-            "age": 33,
-            "favorite_color": "red"
-        ]
+        return expectedPersonJSON
     }
 }

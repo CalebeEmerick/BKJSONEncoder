@@ -15,7 +15,7 @@ public protocol BKJSONParsable: class {
 public final class BKJSONParser: BKJSONParsable {
     
     public init() {}
-    
+
     public func parse(_ jsonObject: Any) throws -> JSON {
         guard let json = jsonObject as? JSON else {
             throw BKJSONEncodableError.invalidJSON

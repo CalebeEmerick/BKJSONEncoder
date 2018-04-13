@@ -17,10 +17,6 @@ final class BKJSONDataDeserializerMock: BKJSONDataDeserializable {
         if shouldThrowError {
             throw BKJSONEncodableError.deserializing(BKJSONEncodableError.invalidJSON)
         }
-        return [
-            "name": "LeBron James",
-            "age": 33,
-            "favorite_color": "red"
-        ]
+        return expectedPersonJSON
     }
 }

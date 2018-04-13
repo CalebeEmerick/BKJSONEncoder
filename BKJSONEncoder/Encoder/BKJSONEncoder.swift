@@ -17,14 +17,15 @@ public final class BKJSONEncoder {
     public init(
         deserializer: BKJSONDataDeserializable = BKJSONDataDeserializer(),
         parser: BKJSONParsable = BKJSONParser(),
-        toStrategy strategy: JSONEncoder.KeyEncodingStrategy = .convertToSnakeCase) {
+        toStrategy strategy: JSONEncoder.KeyEncodingStrategy = .convertToSnakeCase
+    ) {
         self.deserializer = deserializer
         self.parser = parser
         encoder = JSONEncoder()
         encoder.keyEncodingStrategy = strategy
     }
     
-    public func encode<T>(_ value: T) throws -> JSON where T : Encodable {
+    public func encode<T>(_ value: T) throws -> JSON where T: Encodable {
         do {
             let encodedValue = try encoder.encode(value)
             let jsonObject = try deserializer.deserialize(encodedValue)
@@ -34,8 +35,11 @@ public final class BKJSONEncoder {
         catch let error as EncodingError {
             throw BKJSONEncodableError.encoding(error)
         }
-        catch let error {
+        catch let error as BKJSONEncodableError {
             throw error
+        }
+        catch let error {
+            throw BKJSONEncodableError.other(error)
         }
     }
 }
